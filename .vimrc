@@ -83,7 +83,7 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " markdown autoreload
 autocmd BufWritePost *.md silent !pandoc --quiet <afile> -f markdown -t html -s -o /tmp/<afile>:r.html && open -g /tmp/<afile>:r.html
 " LaTeX autoreload
-autocmd BufWritePost *.tex silent !pdflatex -output-directory=/tmp/ <afile> > /dev/null & open -ga skim /tmp/<afile>:r.pdf 2> /dev/null
+autocmd BufWritePost *.tex silent !pdflatex -output-directory=/tmp/ <afile> > /dev/null && open -ga skim /tmp/<afile>:r.pdf 2> /dev/null
 " HTML autoreload
 autocmd BufWritePost *.html silent !open -g <afile>
 
@@ -95,6 +95,6 @@ let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
 set termguicolors
 " colorscheme settings
-colorscheme antares
+colorscheme purify
 highlight Comment gui=italic cterm=italic
 highlight CursorLineNr gui=none cterm=none
