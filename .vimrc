@@ -33,7 +33,7 @@ filetype plugin indent on    " required
 
 "preferences
 let mapleader = ","
-let tabSize=4
+let tabSize=2
 let &softtabstop=tabSize
 let &tabstop=tabSize
 let &shiftwidth=tabSize
@@ -67,18 +67,24 @@ set incsearch
 set hlsearch
 set smartcase
 set ignorecase
+set spellfile=~/.vim/spell/en.utf-8.add
+set spell spelllang=en_us
+set nospell
+
 
 "AUTOCMDS
 
 " swap escape and caps lock (uncomment if needed)
 "autocmd VimEnter * silent! !setxkbmap -option caps:swapescape
+" spell options
+autocmd FileType *.md,*.txt,tex,latex setlocal spell
 " disable autocomment on new line
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-" markdown live preview
+" markdown autoreload
 autocmd BufWritePost *.md silent !pandoc --quiet <afile> -f markdown -t html -s -o /tmp/<afile>:r.html && open -g /tmp/<afile>:r.html
-" LaTeX live preview
-autocmd BufWritePost *.tex silent !pdflatex -output-directory=/tmp/ <afile> > /dev/null && open -ga skim /tmp/<afile>:r.pdf
-" HTML live preview
+" LaTeX autoreload
+autocmd BufWritePost *.tex silent !pdflatex -output-directory=/tmp/ <afile> > /dev/null & open -ga skim /tmp/<afile>:r.pdf 2> /dev/null
+" HTML autoreload
 autocmd BufWritePost *.html silent !open -g <afile>
 
 "VISUAL SETTINGS
