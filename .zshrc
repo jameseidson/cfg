@@ -8,7 +8,7 @@ export ZSH="/Users/james/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="eastwood"
+ZSH_THEME="dpoggi"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -83,6 +83,7 @@ if [ "$TMUX" = "" ]; then tmux attach || tmux new; fi
 alias ssh='TERM=xterm-256color ssh'
 alias attach='tmux attach-session -t'
 alias close='tmux kill-session -t'
+alias httpServ='python3 -m http.server'
 
 # Set $TERM over SSH
 

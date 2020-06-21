@@ -57,8 +57,9 @@ let s:colors = {
     \ 'blur_grey':      get(s:override_colors, 'blur_grey',      { 'gui': '#3B4048', 'cterm': '238' }),
     \ 'menu_grey':      get(s:override_colors, 'menu_grey',      { 'gui': '#3E4452', 'cterm': '237' }),
     \ 'visual_grey':    get(s:override_colors, 'visual_grey',    { 'gui': '#3E4452', 'cterm': '237' }),
-    \ 'visual_black':   get(s:override_colors, 'visual_black',   { 'gui': 'NONE',    'cterm': 'NONE' }),
-    \ 'none':           get(s:override_colors, 'none',           { 'gui': 'NONE',    'cterm': 'NONE' }),
+    \ 'visual_black':   get(s:override_colors, 'visual_black',   { 'gui': 'NONE',    'cterm': 'NONE'}),
+    \ 'none':           get(s:override_colors, 'none',           { 'gui': 'NONE',    'cterm': 'NONE'}),
+    \ 'dark_grey':      get(s:override_colors, 'dark_grey',      { 'gui': '#151515', 'cterm': '235' }),
     \ 'pitch_black':    get(s:override_colors, 'pitch_black',    { 'gui': '#000000', 'cterm': '0' })
 \ }
 
@@ -105,6 +106,7 @@ let s:menu_grey = s:colors.menu_grey
 let s:visual_grey = s:colors.visual_grey
 let s:visual_black = s:colors.visual_black
 let s:none = s:colors.none
+let s:dark_grey= s:colors.dark_grey
 let s:pitch_black = s:colors.pitch_black
 
 " }}}
@@ -219,7 +221,7 @@ call s:hi('Conceal',      {})
 call s:hi('Cursor',       { 'fg': s:black, 'bg': s:blue })
 call s:hi('CursorIM',     {})
 call s:hi('CursorColumn', {})
-call s:hi('CursorLine',   { 'styles': [s:styles.underline] })
+call s:hi('CursorLine',   { 'bg': s:dark_grey })
 call s:hi('Directory',    { 'fg': s:blue })
 call s:hi('DiffAdd',      { 'fg': s:black, 'bg': s:green })
 call s:hi('DiffChange',   { 'fg': s:black, 'bg': s:yellow })
@@ -423,14 +425,12 @@ call s:hi('javaScriptDeprecated',	    { 'fg': s:pink, 'styles': [s:styles.italic
 call s:hi('javaScriptReserved',	        { 'fg': s:blue, 'styles': [s:styles.italic] })
 
 function! s:overwrite_javascript_highlight()
-    syn clear javaScriptIdentifier
     syn clear javaScriptReserved
     call s:hi('javascriptEndColons',         { 'fg': s:pink })
     call s:hi('javascriptLogicSymbols',      { 'fg': s:salmon })
     call s:hi('javascriptOpSymbols',         { 'fg': s:pink })
     call s:hi('javascriptLabel',             { 'fg': s:pink, 'styles': [s:styles.italic] })
     call s:hi('javaScriptThis',              { 'fg': s:blue, 'styles': [s:styles.italic] })
-    call s:hi('javaScriptCustomIdentifier',  { 'fg': s:green, 'styles': [s:styles.italic] })
     call s:hi('javaScriptCustomReserved',    { 'fg': s:blue, 'styles': [s:styles.italic] })
 endfunction
 

@@ -4,13 +4,13 @@ Full disclosure that this repo is not 100% my own work- a lot of it has been cur
 
 ## Dependencies
 ### Alacritty
-* [tamsyn](http://www.fial.com/~scott/tamsyn-font/)
+* [Input Mono](https://input.fontbureau.com)
 
 ### tmux
 * [vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator)
 
 ### vim
-* [Purify (modified with all black bg)](https://github.com/kyoz/purify)
-* [C Syntax Extensions](https://www.vim.org/scripts/script.php?script_id=3064)
+* [Purify (modified slightly)](https://github.com/kyoz/purify)
+* [vim-polyglot](https://github.com/sheerun/vim-polyglot)
 * [pandoc](https://github.com/jgm/pandoc)
-* [Vundle](https://github.com/VundleVim/Vundle.vim)
+* native vim plugin manager
