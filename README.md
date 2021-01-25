@@ -1,8 +1,4 @@
-# cfg 
-Configuration files for Alacritty, oh-my-zsh, tmux, and vim. 
-Full disclosure that this repo is not 100% my own work- a lot of it has been curated from other people's stuff. Below is a list of sources for some of the code that is mentioned in my files.
-
-## Dependencies
+## Stuff I Use
 ### Alacritty
 * [Input Mono](https://input.fontbureau.com)
 
