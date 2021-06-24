@@ -3,10 +3,12 @@
 
 "preferences
 let mapleader = ","
+
 let tabSize=2
-let &softtabstop=tabSize
+
 let &tabstop=tabSize
 let &shiftwidth=tabSize
+
 set expandtab
 set smarttab
 set smartindent
@@ -18,7 +20,7 @@ set ttyfast
 set virtualedit+=block
 set whichwrap+=<,>,[,]
 set title
-set laststatus=2
+set laststatus=0
 set backspace=indent,eol,start
 set background=dark
 set cursorline
@@ -42,7 +44,7 @@ set spell spelllang=en_us
 set nospell
 
 
-"AUTOCMDS
+"COMMANDS
 
 " swap escape and caps lock (uncomment if needed)
 "autocmd VimEnter * silent! !setxkbmap -option caps:swapescape
@@ -52,8 +54,11 @@ autocmd FileType *.html,*.md,*.txt,*.tex setlocal spell
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " markdown autoreload
 autocmd BufWritePost *.md silent !pandoc --quiet <afile> -f markdown -t html -s -o /tmp/<afile>:r.html && open -g /tmp/<afile>:r.html
-" LaTeX autoreload
-autocmd BufWritePost *.tex silent !pdflatex -output-directory=/tmp/ <afile> > /dev/null && open -ga skim /tmp/<afile>:r.pdf 2> /dev/null
+" LaTeX make
+command Maketex !texliveonfly -c xelatex %:r && rm *.log *.aux *.synctex.gz
+
+
+" autocmd BufWritePost *.tex silent !pdflatex -output-directory=/tmp/<afile> > /dev/null && open -ga skim /tmp/<afile>:r.pdf 2> /dev/null
 
 "VISUAL SETTINGS
 
@@ -63,6 +68,6 @@ let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
 set termguicolors
 " colorscheme settings
-colorscheme purify
+colorscheme moonlight
 highlight Comment gui=italic cterm=italic
 highlight CursorLineNr gui=none cterm=none
